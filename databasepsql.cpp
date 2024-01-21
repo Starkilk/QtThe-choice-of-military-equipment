@@ -1,4 +1,5 @@
 #include "databasepsql.h"
+
 #include <QDebug>
 
 DatabasePSql::DatabasePSql(QObject *parent): QObject{parent}{
@@ -6,6 +7,7 @@ DatabasePSql::DatabasePSql(QObject *parent): QObject{parent}{
 
 }
 
+//Подключение БД
 void DatabasePSql::conectDatabase()
 {
     db = QSqlDatabase::addDatabase("QPSQL");
@@ -21,4 +23,9 @@ void DatabasePSql::conectDatabase()
     }
 
 
+}
+
+QSqlDatabase DatabasePSql::getDB()
+{
+    return db;
 }
