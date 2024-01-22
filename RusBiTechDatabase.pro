@@ -14,6 +14,8 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Factory.h \
+    Interface.h \
     databasepsql.h \
     mainwindow.h
 

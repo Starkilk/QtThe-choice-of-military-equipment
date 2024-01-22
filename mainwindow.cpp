@@ -63,6 +63,8 @@ void MainWindow::on_btn_next_clicked()
 
     ui->btn_next->hide();
     ui->btn_choice->show();
+    typeClass = currentRow;//запомнили тип класса, в который перешли
+
 }
 
 //Слушатель нажатия на элементы таблицы
@@ -88,9 +90,17 @@ void MainWindow::on_btn_back_clicked()
 void MainWindow::on_btn_choice_clicked()
 {
     QModelIndex currentDiscount  = ui->tvMain->currentIndex();
-    for(int i = 1;i <= 3;i++){
-        qDebug() << ui->tvMain->model()->data(ui->tvMain->model()->index(currentDiscount.row(),i),0);
-    }
+
+    QString name = ui->tvMain->model()->data(ui->tvMain->model()->index(currentDiscount.row(),1),0).toString();
+    double weight = ui->tvMain->model()->data(ui->tvMain->model()->index(currentDiscount.row(),2),0).toDouble();
+    int value = ui->tvMain->model()->data(ui->tvMain->model()->index(currentDiscount.row(),3),0).toInt();
+
+    Factory factory;
+    qDebug() << 5;
+    Interface *interface = factory.factoryMetod(name, weight, value, typeClass);
+    qDebug() << 6;
+
+
 
 }
 

@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "databasepsql.h"
 #include "tablemodels.h"
+#include "Factory.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -38,5 +40,6 @@ private:
     QSqlTableModel *model;
 
     int currentRow;
+    int typeClass;
 };
 #endif // MAINWINDOW_H
